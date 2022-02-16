@@ -1,0 +1,10 @@
+.main-header{
+    background-color: var(--clr1);
+    height: 2.0625rem;
+}
+
+.logo{
+    font-size: 1.2rem;
+    /* padding: 0.21875rem 0 0 0.5rem; */
+    color: var(--clr2);
+}
