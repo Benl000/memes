@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body onload="init()">
+<body onload="onInit()">
     <header class="main-header main-layout flex space-between align-center">
         <div class="logo">logo</div>
         <nav class="main-nav flex">
@@ -22,27 +22,7 @@
         <input type="text">
         <div class="common-words">funny comics dogs drinks</div>
     </section>
-    <main class="main-gallery grid-container">
-        <img src="./img/square/1.jpg" alt="">
-        <img src="./img/square/2.jpg" alt="">
-        <img src="./img/square/3.jpg" alt="">
-        <img src="./img/square/4.jpg" alt="">
-        <img src="./img/square/5.jpg" alt="">
-        <img src="./img/square/6.jpg" alt="">
-        <img src="./img/square/7.jpg" alt="">
-        <img src="./img/square/8.jpg" alt="">
-        <img src="./img/square/9.jpg" alt="">
-        <img src="./img/square/10.jpg" alt="">
-        <img src="./img/square/11.jpg" alt="">
-        <img src="./img/square/12.jpg" alt="">
-        <img src="./img/square/13.jpg" alt="">
-        <img src="./img/square/14.jpg" alt="">
-        <img src="./img/square/15.jpg" alt="">
-        <img src="./img/square/16.jpg" alt="">
-        <img src="./img/square/17.jpg" alt="">
-        <img src="./img/square/18.jpg" alt="">
-
-    </main>
+    <main class="main-gallery grid-container"></main>
     <main class="main-editor flex">
         <div class="canvas-container">
             <canvas id="my-canvas" width="300" height="300" style="outline:1px solid green"></canvas>
@@ -61,12 +41,6 @@
                 <img src="./img/icons/center-text-alignment.png" alt="">
             </button>
             <button class="btn">
-                <img src="./img/icons/linkedin-logo.png" alt="">
-            </button>
-            <button class="btn">
-                <img src="./img/icons/facebook-logo.png" alt="">
-            </button>
-            <button class="btn">
                 <img src="./img/icons/github-logo.png" alt="">
             </button>
             <button class="btn">
@@ -75,14 +49,15 @@
             <button class="btn">
                 <img src="./img/icons/paint-board-and-brush.png" alt="">
             </button>
+            <input type="color" onchange="onChangeColor(this.value)" placeholder="">
             <button class="btn">
                 <img src="./img/icons/trash.png" alt="">
             </button>
             <button class="btn">
-                <img src="./img/icons/increasefont-icon.png" alt="">
+                <img src="./img/icons/increasefont-icon.png" onclick="changeTxtSize('increase')" alt="">
             </button>
             <button class="btn">
-                <img src="./img/icons/decreasefont-icon.png" alt="">
+                <img src="./img/icons/decreasefont-icon.png" onclick="changeTxtSize('decrease')" alt="">
             </button>
             <button class="btn">
                 <img src="./img/icons/textstroke.png" alt="">
@@ -90,6 +65,7 @@
             <button class="btn">
                 <img src="./img/icons/search-icon.png" alt="">
             </button>
+            <input type="text" placeholder="type a new line here" onkeyup="setLineTxt(this)">
             <button></button>
         </div>
     </main>

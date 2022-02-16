@@ -3,10 +3,10 @@
 var gCanvas;
 var gCtx;
 
-function init() {
+function onInit() {
+    renderGallery()
     gCanvas = document.getElementById('my-canvas');
     gCtx = gCanvas.getContext('2d');
-
     renderMeme();
 }
 
@@ -15,19 +15,14 @@ function renderMeme() {
     drawImg(meme.selectedImgId);
 }
 
-// function onImgInput(ev) {
-//     loadImageFromInput(ev, renderImg);
-// }
-
 function drawImg(imgId) {
     const currMeme = getMeme();
     var img = new Image();
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-        drawText(20, 20, currMeme.lines[0].txt);
+        drawText(40, 40, currMeme.lines[0].txt);
     };
     img.src = `${getImgForDisplay(imgId).url}`;
-    console.log(img.src);
 }
 
 function drawText(x, y, text) {
@@ -36,8 +31,13 @@ function drawText(x, y, text) {
 
     gCtx.lineWidth = 1;
     gCtx.strokeStyle = 'brown';
-    gCtx.fillStyle = 'black';
-    gCtx.font = '20px Arial';
+    gCtx.fillStyle = gMeme.lines[0].color;
+    gCtx.font = `${gMeme.lines[0].size}px Arial`;
     gCtx.fillText(text, x, y);
     gCtx.strokeText(text, x, y);
+}
+
+
+function changeTxtSize(txtChange) {
+    setFontSize(txtChange)
 }
