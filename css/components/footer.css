@@ -1,5 +1,5 @@
-footer{
-    background-color: var(--clr1);
+.footer-cotant{
+    background-color: var(--clr3);
 }
 
 .about-me-img{
@@ -9,4 +9,19 @@ footer{
 
 .about-me{
     width: 80%;
+    margin: auto;
+    text-align: start;
+}
+
+.about-me>*{
+    padding: 10px;
+}
+
+.main-footer{
+    text-align: center;
+}
+
+.footer-sub{
+    background-color: var(--clr1);
+    height: 20px;
 }
