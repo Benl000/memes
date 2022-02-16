@@ -9,38 +9,39 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body>
+<body onload="init()">
     <header class="main-header main-layout flex space-between align-center">
         <div class="logo">logo</div>
         <nav class="main-nav flex">
             <div class="gallery">gallery</div>
             <div class="memes">memes</div>
             <div class="about">about</div>
-        </nav> 
+        </nav>
     </header>
     <section class="search-bar flex space-between">
         <input type="text">
         <div class="common-words">funny comics dogs drinks</div>
     </section>
     <main class="main-gallery grid-container">
-        <img src="./img/meme-imgs (square)/1.jpg" alt="">
-        <img src="./img/meme-imgs (square)/2.jpg" alt="">
-        <img src="./img/meme-imgs (square)/3.jpg" alt="">
-        <img src="./img/meme-imgs (square)/4.jpg" alt="">
-        <img src="./img/meme-imgs (square)/5.jpg" alt="">
-        <img src="./img/meme-imgs (square)/6.jpg" alt="">
-        <img src="./img/meme-imgs (square)/7.jpg" alt="">
-        <img src="./img/meme-imgs (square)/8.jpg" alt="">
-        <img src="./img/meme-imgs (square)/9.jpg" alt="">
-        <img src="./img/meme-imgs (square)/10.jpg" alt="">
-        <img src="./img/meme-imgs (square)/11.jpg" alt="">
-        <img src="./img/meme-imgs (square)/12.jpg" alt="">
-        <img src="./img/meme-imgs (square)/13.jpg" alt="">
-        <img src="./img/meme-imgs (square)/14.jpg" alt="">
-        <img src="./img/meme-imgs (square)/15.jpg" alt="">
-        <img src="./img/meme-imgs (square)/16.jpg" alt="">
-        <img src="./img/meme-imgs (square)/17.jpg" alt="">
-        <img src="./img/meme-imgs (square)/18.jpg" alt="">
+        <img src="./img/square/1.jpg" alt="">
+        <img src="./img/square/2.jpg" alt="">
+        <img src="./img/square/3.jpg" alt="">
+        <img src="./img/square/4.jpg" alt="">
+        <img src="./img/square/5.jpg" alt="">
+        <img src="./img/square/6.jpg" alt="">
+        <img src="./img/square/7.jpg" alt="">
+        <img src="./img/square/8.jpg" alt="">
+        <img src="./img/square/9.jpg" alt="">
+        <img src="./img/square/10.jpg" alt="">
+        <img src="./img/square/11.jpg" alt="">
+        <img src="./img/square/12.jpg" alt="">
+        <img src="./img/square/13.jpg" alt="">
+        <img src="./img/square/14.jpg" alt="">
+        <img src="./img/square/15.jpg" alt="">
+        <img src="./img/square/16.jpg" alt="">
+        <img src="./img/square/17.jpg" alt="">
+        <img src="./img/square/18.jpg" alt="">
+
     </main>
     <main class="main-editor flex">
         <div class="canvas-container">
@@ -48,7 +49,46 @@
         </div>
         <div class="editor-panel-control">
             <button class="btn">
-                <img src="./img/DESIGN/Meme1 - Sergei/ICONS/add.png" alt="">
+                <img src="./img/icons/add.png" alt="">
+            </button>
+            <button class="btn">
+                <img src="./img/icons/align-to-left.png" alt="">
+            </button>
+            <button class="btn">
+                <img src="./img/icons/align-to-right.png" alt="">
+            </button>
+            <button class="btn">
+                <img src="./img/icons/center-text-alignment.png" alt="">
+            </button>
+            <button class="btn">
+                <img src="./img/icons/linkedin-logo.png" alt="">
+            </button>
+            <button class="btn">
+                <img src="./img/icons/facebook-logo.png" alt="">
+            </button>
+            <button class="btn">
+                <img src="./img/icons/github-logo.png" alt="">
+            </button>
+            <button class="btn">
+                <img src="./img/icons/up-and-down-opposite-double-arrows-side-by-side.png" alt="">
+            </button>
+            <button class="btn">
+                <img src="./img/icons/paint-board-and-brush.png" alt="">
+            </button>
+            <button class="btn">
+                <img src="./img/icons/trash.png" alt="">
+            </button>
+            <button class="btn">
+                <img src="./img/icons/increasefont-icon.png" alt="">
+            </button>
+            <button class="btn">
+                <img src="./img/icons/decreasefont-icon.png" alt="">
+            </button>
+            <button class="btn">
+                <img src="./img/icons/textstroke.png" alt="">
+            </button>
+            <button class="btn">
+                <img src="./img/icons/search-icon.png" alt="">
             </button>
             <button></button>
         </div>
@@ -69,7 +109,10 @@
             <small>© coffeerights</small>
         </div>
     </footer> -->
-    <script src="./js/main.js"></script>
+    <script src="./js/service/meme.service.js"></script>
+    <script src="./js/service/gallery.service.js"></script>
+    <script src="./js/gallery.controller.js"></script>
+    <script src="./js/meme.controller.js"></script>
 </body>
 
 </html>

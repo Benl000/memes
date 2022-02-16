@@ -1,6 +1,25 @@
 'use strict'
 
-// console.log('hello');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const memesSentences = [
     'I never eat falafel',
