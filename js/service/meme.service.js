@@ -1,7 +1,7 @@
 'use strict';
 
 var gIdx = 1;
-var gTxtSize = 20;
+var gCurrLine = 0;
 var gImgs = [{
     id: 1,
     url: './img/square/1.jpg',
@@ -48,8 +48,18 @@ var gMeme = {
     selectedImgId: 2,
     selectedLineIdx: 0,
     lines: [{
-        txt: 'I sometimes eat Falafel',
-        size: gTxtSize,
+        txt: '',
+        size: 20,
+        align: 'left',
+        color: 'red'
+    }, {
+        txt: '',
+        size: 20,
+        align: 'left',
+        color: 'red'
+    }, {
+        txt: '',
+        size: 20,
         align: 'left',
         color: 'red'
     }]
@@ -65,7 +75,7 @@ function getImgForDisplay(imgId) {
 
 function setLineTxt(elBtn) {
     var newTxt = elBtn.value;
-    gMeme.lines[0].txt = newTxt;
+    gMeme.lines[gCurrLine].txt = newTxt;
     renderMeme();
 }
 
@@ -77,14 +87,19 @@ function setImg(imgId) {
 function setFontSize(txtChange) {
     switch (txtChange) {
         case 'increase':
-            gTxtSize += 2;
+            gMeme.lines[gCurrLine].size += 2;
+            console.log(gMeme);
             renderMeme();
-            console.log(gTxtSize);
             break;
         case 'decrease':
-            gTxtSize -= 2;
-            console.log(gTxtSize);
+            gMeme.lines[gCurrLine].size -= 2;
             renderMeme();
             break;
     }
+}
+
+function setLine() {
+    gCurrLine++;
+    gCurrLine = (gCurrLine < 3) ? gCurrLine++ : gCurrLine = 0;
+    console.log(gCurrLine);
 }
