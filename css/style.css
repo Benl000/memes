@@ -1,18 +1,18 @@
 
 /* setup */
 
-@import './css/setup/vars.css';
-@import './css/setup/typography.css';
+@import './setup/vars.css';
+@import './setup/typography.css';
 
 /* base */
 
-@import './css/basic/base.css';
-@import './css/basic/layout.css';
-@import './css/basic/mq.css';
-@import './css/basic/helpers.css';
+@import './basic/base.css';
+@import './basic/layout.css';
+@import './basic/mq.css';
+@import './basic/helpers.css';
 
 /* components */
 
-@import './css/components/header.css';
-@import './css/components/footer.css';
-@import './css/components/gallery-grid.css';
+@import './components/header.css';
+@import './components/footer.css';
+@import './components/gallery-grid.css';
