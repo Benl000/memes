@@ -20,30 +20,27 @@ function drawImg(imgId) {
     var img = new Image();
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-        drawText(20, 40, currMeme.lines[0]);
-        drawText(20, 150, currMeme.lines[1]);
-        drawText(20, 280, currMeme.lines[2]);
+        drawText(10, 40, currMeme.lines[0]);
+        drawText(10, 150, currMeme.lines[1]);
+        drawText(10, 280, currMeme.lines[2]);
     };
     img.src = `${getImgForDisplay(imgId).url}`;
 }
 
-function drawText(x, y, line) {
-    // gCtx.font = '48px serif';
-    // gCtx.fillText(text, x, y);
-
-    gCtx.lineWidth = 1;
-    gCtx.strokeStyle = 'brown';
-    gCtx.fillStyle = line.color;
-    gCtx.font = `${line.size}px Arial`;
-    gCtx.fillText(line.txt, x, y);
-    gCtx.strokeText(line.txt, x, y);
-}
-
-
-function changeTxtSize(txtChange) {
+function onChangeTxtSize(txtChange) {
     setFontSize(txtChange)
 }
 
-function switchLine(){
+function onChangeColorFill(fillColor) {
+    changeColorFillTxt(fillColor)
+    renderMeme();
+}
+
+function onChangeColorStroke(strokeColor){
+    changeColorStroke(strokeColor)
+    renderMeme();
+}
+
+function onSwitchLine(){
     setLine()
 }

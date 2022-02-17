@@ -15,12 +15,7 @@ function onImgSelect(imgId) {
   setImg(imgId);
 }
 
-function onChangeColor(color) {
-  gMeme.lines[0].color = color;
-  console.log(gMeme);
-  console.log(color);
-  renderMeme();
-}
+
 
 
 

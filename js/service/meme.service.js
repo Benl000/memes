@@ -51,17 +51,20 @@ var gMeme = {
         txt: '',
         size: 20,
         align: 'left',
-        color: 'red'
+        color: 'black',
+        stroke: 'black'
     }, {
         txt: '',
         size: 20,
         align: 'left',
-        color: 'red'
+        color: 'black',
+        stroke: 'black'
     }, {
         txt: '',
         size: 20,
         align: 'left',
-        color: 'red'
+        color: 'black',
+        stroke: 'black'
     }]
 };
 
@@ -73,14 +76,26 @@ function getImgForDisplay(imgId) {
     return gImgs.find(img => imgId === img.id);
 }
 
-function setLineTxt(elBtn) {
-    var newTxt = elBtn.value;
-    gMeme.lines[gCurrLine].txt = newTxt;
+function setImg(imgId) {
+    gMeme.selectedImgId = imgId;
     renderMeme();
 }
 
-function setImg(imgId) {
-    gMeme.selectedImgId = imgId;
+function drawText(x, y, line) {
+    // gCtx.font = '48px serif';
+    // gCtx.fillText(text, x, y);
+
+    gCtx.lineWidth = 1;
+    gCtx.strokeStyle = line.stroke;
+    gCtx.fillStyle = line.color;
+    gCtx.font = `${line.size}px Arial`;
+    gCtx.fillText(line.txt, x, y);
+    gCtx.strokeText(line.txt, x, y);
+}
+
+function setLineTxt(elBtn) {
+    var newTxt = elBtn.value;
+    gMeme.lines[gCurrLine].txt = newTxt;
     renderMeme();
 }
 
@@ -102,4 +117,12 @@ function setLine() {
     gCurrLine++;
     gCurrLine = (gCurrLine < 3) ? gCurrLine++ : gCurrLine = 0;
     console.log(gCurrLine);
+}
+
+function changeColorFillTxt(color){
+    gMeme.lines[gCurrLine].color = color;
+}
+
+function changeColorStroke(color){
+    gMeme.lines[gCurrLine].stroke = color;
 }
