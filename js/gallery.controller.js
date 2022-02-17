@@ -5,7 +5,7 @@
 function renderGallery() {
   var strHTML = '';
   strHTML += gImgs.map((img) => {
-    return `<img src="./img/square/${img.id}.jpg" onclick="onImgSelect(${img.id})"alt="">`;
+    return `<img href="#" src="./img/square/${img.id}.jpg" onclick="onImgSelect(${img.id})" alt="">`;
   }).join('');
   var elGallery = document.querySelector('.main-gallery');
   elGallery.innerHTML = strHTML;
