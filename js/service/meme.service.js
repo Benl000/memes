@@ -1,7 +1,7 @@
 'use strict';
 
 var gIdx = 1;
-var gCurrLine = 0;
+
 var gImgs = [{
     id: 1,
     url: './img/square/1.jpg',
@@ -51,18 +51,21 @@ var gMeme = {
         txt: '',
         size: 20,
         align: 'left',
+        font: 'Serif',
         color: 'black',
         stroke: 'black'
     }, {
         txt: '',
         size: 20,
         align: 'left',
+        font: 'Serif',
         color: 'black',
         stroke: 'black'
     }, {
         txt: '',
         size: 20,
         align: 'left',
+        font: 'Serif',
         color: 'black',
         stroke: 'black'
     }]
@@ -84,45 +87,65 @@ function setImg(imgId) {
 function drawText(x, y, line) {
     // gCtx.font = '48px serif';
     // gCtx.fillText(text, x, y);
-
+    gCtx.focus = "fdgsfgs";
     gCtx.lineWidth = 1;
     gCtx.strokeStyle = line.stroke;
     gCtx.fillStyle = line.color;
-    gCtx.font = `${line.size}px Arial`;
+    gCtx.font = `${line.size}px ${line.font}`;
     gCtx.fillText(line.txt, x, y);
     gCtx.strokeText(line.txt, x, y);
 }
 
 function setLineTxt(elBtn) {
     var newTxt = elBtn.value;
-    gMeme.lines[gCurrLine].txt = newTxt;
+    gMeme.lines[gMeme.selectedLineIdx].txt = newTxt;
     renderMeme();
 }
 
 function setFontSize(txtChange) {
     switch (txtChange) {
         case 'increase':
-            gMeme.lines[gCurrLine].size += 2;
+            gMeme.lines[gMeme.selectedLineIdx].size += 2;
             console.log(gMeme);
             renderMeme();
             break;
         case 'decrease':
-            gMeme.lines[gCurrLine].size -= 2;
+            gMeme.lines[gMeme.selectedLineIdx].size -= 2;
             renderMeme();
             break;
     }
 }
 
 function setLine() {
-    gCurrLine++;
-    gCurrLine = (gCurrLine < 3) ? gCurrLine++ : gCurrLine = 0;
-    console.log(gCurrLine);
+    gMeme.selectedLineIdx = (gMeme.selectedLineIdx <= 1) ? ++gMeme.selectedLineIdx : 0;
+    console.log(gMeme.selectedLineIdx);
 }
 
-function changeColorFillTxt(color){
-    gMeme.lines[gCurrLine].color = color;
+function changeColorFillTxt(color) {
+    gMeme.lines[gMeme.selectedLineIdx].color = color;
 }
 
-function changeColorStroke(color){
-    gMeme.lines[gCurrLine].stroke = color;
+function changeColorStroke(color) {
+    gMeme.lines[gMeme.selectedLineIdx].stroke = color;
+}
+
+function changeTxtFont() {
+    switch (gMeme.lines[gMeme.selectedLineIdx].font) {
+        case 'Serif':
+            gMeme.lines[gMeme.selectedLineIdx].font = 'Impact';
+            break;
+        case 'Impact':
+            gMeme.lines[gMeme.selectedLineIdx].font = 'Comic Sans MS';
+            break;
+        case 'Comic Sans MS':
+            gMeme.lines[gMeme.selectedLineIdx].font = 'Sans-serif';
+            break;
+        case 'Sans-serif':
+            gMeme.lines[gMeme.selectedLineIdx].font = 'Serif';
+            break;
+    }
+}
+
+function getCurrLine() {
+    return gMeme.lines[gMeme.selectedLineIdx].txt;
 }

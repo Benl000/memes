@@ -18,55 +18,59 @@
             <div class="about">about</div>
         </nav>
     </header>
-    <section class="search-bar flex space-between">
+    <!-- <section class="search-bar flex space-between">
         <input type="text">
         <div class="common-words">funny comics dogs drinks</div>
-    </section>
-    <main class="main-gallery grid-container"></main>
+    </section> -->
     <main class="main-editor flex">
-        <div class="canvas-container">
-            <canvas id="my-canvas" width="300" height="300" style="outline:1px solid green"></canvas>
-        </div>
-        <div class="editor-panel-control editor-grid-container">
-            
-            <input class="btn0" type="text" placeholder="type a new line here" onkeyup="setLineTxt(this)">
-            <button class="btn1">
-                <img src="./img/icons/add.png" alt="">
-            </button>
-            <button class="btn2">
-                <img src="./img/icons/up-and-down.png" onclick="onSwitchLine()" alt="">
-            </button>
-            <button class="btn3">
-                <img src="./img/icons/trash.png" alt="">
-            </button>
-            <button class="btn4">
-                <img src="./img/icons/align-to-left.png" alt="">
-            </button>
-            <button class="btn5">
-                <img src="./img/icons/center-text-alignment.png" alt="">
-            </button>
-            <button class="btn6">
-                <img src="./img/icons/align-to-right.png" alt="">
-            </button>
-            <section class="btn-container7">
-                <img src="./img/icons/textfill.png" alt="">
-                <input type="color" onchange="onChangeColorFill(this.value)" placeholder="">
-            </section>
-            <section class="btn-container8">
-                <img src="./img/icons/textstroke.png" alt="">
-                <input type="color" onchange="onChangeColorStroke(this.value)">
-            </section>
-            <button class="btn9">
-                <img src="./img/icons/increasefont-icon.png" onclick="onChangeTxtSize('increase')" alt="">
-            </button>
-            <button class="btn10">
-                <img src="./img/icons/decreasefont-icon.png" onclick="onChangeTxtSize('decrease')" alt="">
-            </button>
-            <button class="btn11">
-                <img src="./img/icons/search-icon.png" alt="">
-            </button>
-        </div>
+            <div class="canvas-container">
+                <canvas id="my-canvas" width="300" height="300"></canvas>
+            </div>
+            <div class="editor-panel-control editor-grid-container">
+
+                <input class="btn0" id="text-input" type="text" placeholder="type a new line here"
+                    onkeyup="setLineTxt(this)">
+                <button class="btn1">
+                    <img src="./img/icons/add.png" alt="">
+                </button>
+                <button class="btn2">
+                    <img src="./img/icons/up-and-down.png" onclick="onSwitchLine()" alt="">
+                </button>
+                <button class="btn3">
+                    <img src="./img/icons/trash.png" alt="">
+                </button>
+                <button class="btn4">
+                    <img src="./img/icons/align-to-left.png" alt="">
+                </button>
+                <button class="btn5">
+                    <img src="./img/icons/center-text-alignment.png" alt="">
+                </button>
+                <button class="btn6">
+                    <img src="./img/icons/align-to-right.png" alt="">
+                </button>
+                <section class="btn-container7">
+                    <img src="./img/icons/textfill.png" alt="">
+                    <input type="color" onchange="onChangeColorFill(this.value)" placeholder="">
+                </section>
+                <section class="btn-container8">
+                    <img src="./img/icons/textstroke.png" alt="">
+                    <input type="color" onchange="onChangeColorStroke(this.value)">
+                </section>
+                <button class="btn9">
+                    <img src="./img/icons/increasefont-icon.png" onclick="onChangeTxtSize('increase')" alt="">
+                </button>
+                <button class="btn10">
+                    <img src="./img/icons/decreasefont-icon.png" onclick="onChangeTxtSize('decrease')" alt="">
+                </button>
+                <button class="btn12">
+                    <img src="./img/icons/font.png" onclick="onChangeTxtFont()" alt="">
+                </button>
+                <button class="btn11">
+                    <img src="./img/icons/search-icon.png" alt="">
+                </button>
+            </div>
     </main>
+    <main class="main-gallery grid-container"></main>
     <!-- <footer class="main-footer">
         <div class="footer-cotant flex">
             <div class="about-me flex space-between">

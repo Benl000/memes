@@ -4,7 +4,7 @@ var gCanvas;
 var gCtx;
 
 function onInit() {
-    renderGallery()
+    renderGallery();
     gCanvas = document.getElementById('my-canvas');
     gCtx = gCanvas.getContext('2d');
     renderMeme();
@@ -28,19 +28,25 @@ function drawImg(imgId) {
 }
 
 function onChangeTxtSize(txtChange) {
-    setFontSize(txtChange)
+    setFontSize(txtChange);
 }
 
 function onChangeColorFill(fillColor) {
-    changeColorFillTxt(fillColor)
+    changeColorFillTxt(fillColor);
     renderMeme();
 }
 
-function onChangeColorStroke(strokeColor){
-    changeColorStroke(strokeColor)
+function onChangeColorStroke(strokeColor) {
+    changeColorStroke(strokeColor);
     renderMeme();
 }
 
-function onSwitchLine(){
-    setLine()
+function onSwitchLine() {
+    setLine();
+    document.getElementById("text-input").value = getCurrLine();
+}
+
+function onChangeTxtFont() {
+    changeTxtFont();
+    renderMeme();
 }
