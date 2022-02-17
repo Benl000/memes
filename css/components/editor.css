@@ -8,6 +8,7 @@
 .main-editor {
     padding: 10px;
     justify-content: center;
+    background-color: var(--clr2);
 }
 
 .editor-panel-control button, .editor-panel-control input {
@@ -98,4 +99,27 @@
 .btn12 {
     grid-column: 1;
     grid-row: 4;
+}
+
+/* mq */
+
+
+@media (max-width:600px) {
+
+    .main-editor {
+        flex-direction: column;
+    }
+
+    .editor-grid-container {
+        margin: auto;
+        padding: 10px 45px;
+        border: 10px solid black;
+        border-width: 0 10px 10px 10px;
+    }
+
+    .canvas-container {
+        margin: auto;
+        border: 10px solid black;
+        border-width: 10px 10px 0 10px
+    }
 }

@@ -118,7 +118,6 @@ function setFontSize(txtChange) {
 
 function setLine() {
     gMeme.selectedLineIdx = (gMeme.selectedLineIdx <= 1) ? ++gMeme.selectedLineIdx : 0;
-    console.log(gMeme.selectedLineIdx);
 }
 
 function changeColorFillTxt(color) {
