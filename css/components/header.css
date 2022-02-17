@@ -1,13 +1,12 @@
-.main-header{
+.main-header {
     background-color: var(--clr1);
     height: 100px;
     width: 100%;
 }
 
-.logo{
+.logo {
     margin: auto;
     width: 400px;
-    /* padding: 0.21875rem 0 0 0.5rem; */
     color: var(--clr2);
 }
 
@@ -15,3 +14,9 @@
 
 /* mq */
 
+@media (max-width:600px) {
+
+    .logo {
+        width: 300px;
+    }
+}

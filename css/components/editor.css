@@ -16,7 +16,7 @@
 }
 
 .canvas-container {
-    border: 10px solid black;
+    border: 10px ridge var(--clr3);
     border-width: 10px 0 10px 10px
 }
 
@@ -38,7 +38,7 @@
     grid-template-rows: 50px 50px 50px 50px 50px;
     gap: 10px;
     padding: 10px;
-    border: 10px solid black;
+    border: 10px ridge var(--clr3);
     border-width: 10px 10px 10px 0;
 }
 
@@ -113,13 +113,11 @@
     .editor-grid-container {
         margin: auto;
         padding: 10px 45px;
-        border: 10px solid black;
         border-width: 0 10px 10px 10px;
     }
 
     .canvas-container {
         margin: auto;
-        border: 10px solid black;
         border-width: 10px 10px 0 10px
     }
 }
