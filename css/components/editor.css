@@ -101,6 +101,11 @@
     grid-row: 4;
 }
 
+.shareFbBtn{
+    grid-column: 1;
+    grid-row: 5;
+}
+
 /* mq */
 
 

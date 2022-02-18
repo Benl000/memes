@@ -42,6 +42,38 @@ var gImgs = [{
     id: 10,
     url: './img/square/10.jpg',
     keywords: ['politics', 'funny']
+}, {
+    id: 11,
+    url: './img/square/11.jpg',
+    keywords: ['politics', 'funny']
+}, {
+    id: 12,
+    url: './img/square/12.jpg',
+    keywords: ['politics', 'funny']
+}, {
+    id: 13,
+    url: './img/square/13.jpg',
+    keywords: ['politics', 'funny']
+}, {
+    id: 14,
+    url: './img/square/14.jpg',
+    keywords: ['politics', 'funny']
+}, {
+    id: 15,
+    url: './img/square/15.jpg',
+    keywords: ['politics', 'funny']
+}, {
+    id: 16,
+    url: './img/square/16.jpg',
+    keywords: ['politics', 'funny']
+}, {
+    id: 17,
+    url: './img/square/17.jpg',
+    keywords: ['politics', 'funny']
+}, {
+    id: 18,
+    url: './img/square/18.jpg',
+    keywords: ['politics', 'funny']
 }];
 
 var gMeme = {
@@ -49,24 +81,10 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [{
         txt: '',
-        size: 20,
+        size: 30,
         align: 'left',
-        font: 'Serif',
-        color: 'black',
-        stroke: 'black'
-    }, {
-        txt: '',
-        size: 20,
-        align: 'left',
-        font: 'Serif',
-        color: 'black',
-        stroke: 'black'
-    }, {
-        txt: '',
-        size: 20,
-        align: 'left',
-        font: 'Serif',
-        color: 'black',
+        font: 'Impact',
+        color: 'white',
         stroke: 'black'
     }]
 };
@@ -85,10 +103,7 @@ function setImg(imgId) {
 }
 
 function drawText(x, y, line) {
-    // gCtx.font = '48px serif';
-    // gCtx.fillText(text, x, y);
-    gCtx.focus = "fdgsfgs";
-    gCtx.lineWidth = 1;
+    gCtx.lineWidth = 2;
     gCtx.strokeStyle = line.stroke;
     gCtx.fillStyle = line.color;
     gCtx.font = `${line.size}px ${line.font}`;
@@ -117,7 +132,7 @@ function setFontSize(txtChange) {
 }
 
 function setLine() {
-    gMeme.selectedLineIdx = (gMeme.selectedLineIdx <= 1) ? ++gMeme.selectedLineIdx : 0;
+    gMeme.selectedLineIdx = (gMeme.selectedLineIdx <= (gMeme.lines.length - 2)) ? ++gMeme.selectedLineIdx : 0;
 }
 
 function changeColorFillTxt(color) {
@@ -147,4 +162,27 @@ function changeTxtFont() {
 
 function getCurrLine() {
     return gMeme.lines[gMeme.selectedLineIdx].txt;
+}
+
+function setNewLine() {
+    gMeme.lines.push({
+        txt: '',
+        size: 30,
+        align: 'left',
+        font: 'Impact',
+        color: 'white',
+        stroke: 'black'
+    });
+    gMeme.selectedLineIdx = gMeme.lines.length - 1;
+    document.getElementById("text-input").value = gMeme.lines[gMeme.selectedLineIdx].txt;
+}
+
+
+function setDeleteLine() {
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1);
+}
+
+function memeDownload(elBtn) {
+    const data = gCanvas.toDataURL('image/jpeg');
+    elBtn.href = data;
 }

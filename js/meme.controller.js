@@ -20,9 +20,13 @@ function drawImg(imgId) {
     var img = new Image();
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
-        drawText(10, 40, currMeme.lines[0]);
-        drawText(10, 150, currMeme.lines[1]);
-        drawText(10, 280, currMeme.lines[2]);
+        gMeme.lines.forEach((line, i) => {
+            if (i === 0) {
+                drawText(10, 30, currMeme.lines[i]);
+            } else if (i === 1) {
+                drawText(10, 280, currMeme.lines[i]);
+            } else {drawText(10, (i * 30 + 20), currMeme.lines[i])}
+        });
     };
     img.src = `${getImgForDisplay(imgId).url}`;
 }
@@ -49,4 +53,48 @@ function onSwitchLine() {
 function onChangeTxtFont() {
     changeTxtFont();
     renderMeme();
+}
+
+function onSetNewLine() {
+    setNewLine();
+    renderMeme();
+}
+
+function onSetDeleteLine() {
+    setDeleteLine();
+    renderMeme();
+}
+
+function onMemeDownload(elBtn) {
+    memeDownload(elBtn);
+}
+
+function onShareMeme() {
+    const imgDataUrl = gCanvas.toDataURL("image/jpeg");
+
+    function onSuccess(uploadedImgUrl) {
+        const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl);
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}`, '_blank');
+
+    }
+    doUploadImg(imgDataUrl, onSuccess);
+}
+
+function doUploadImg(imgDataUrl, onSuccess) {
+
+    const formData = new FormData();
+    formData.append('img', imgDataUrl);
+
+    fetch('//ca-upload.com/here/upload.php', {
+        method: 'POST',
+        body: formData
+    })
+        .then(res => res.text())
+        .then((url) => {
+            console.log('Got back live url:', url);
+            onSuccess(url);
+        })
+        .catch((err) => {
+            console.error(err);
+        });
 }
