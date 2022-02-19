@@ -5,20 +5,19 @@ var gCtx;
 var gStartPos;
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
 
+
 function onInit() {
     renderGallery();
-    renderSavedMemesGallery()
+    renderSavedMemesGallery();
     gCanvas = document.getElementById('my-canvas');
     gCtx = gCanvas.getContext('2d');
     addListeners();
     renderMeme();
 }
 
-
 ////////////
 // Canvas //
 ////////////
-
 
 function renderMeme() {
     const meme = getMeme();
@@ -56,9 +55,10 @@ function doUploadImg(imgDataUrl, onSuccess) {
 // Editor buttons //
 ////////////////////
 
+
 function onSaveMeme() {
-    saveMeme()
-    renderSavedMemesGallery()
+    saveMeme();
+    renderSavedMemesGallery();
 }
 
 function onChangeTxtSize(txtChange) {
@@ -111,7 +111,66 @@ function onShareMeme() {
     doUploadImg(imgDataUrl, onSuccess);
 }
 
+function onRandomMeme() {
 
+    const randomMeme = getMeme();
+
+    const memesSentences = [
+        'I never eat falafel',
+        'DOMS DOMS EVERYWHERE',
+        'Stop Using i in for loops',
+        'Armed in knowledge',
+        'Js error "Unexpected String"',
+        'One does not simply write js',
+        'I`m a simple man i see vanilla JS, i click like!',
+        'JS, HTML,CSS?? Even my momma can do that',
+        'May the force be with you',
+        'I know JS',
+        'JS Where everything is made up and the rules dont matter',
+        'Not sure if im good at programming or good at googling',
+        'But if we could',
+        'JS what is this?',
+        'Write hello world , add to cv 7 years experienced',
+    ];
+    const memesFont = ['Impact','Serif','Comic Sans MS','Sans-serif']
+
+    const allImgs = getImgs();
+    const randomImg = getRandomIntInclusive(0, allImgs.length - 1);
+    const numOfSentences = getRandomIntInclusive(0, 1);
+    const randomSentence = memesSentences[getRandomIntInclusive(0, memesSentences.length - 1)];
+    const randomTextSize = getRandomIntInclusive(10, 20);
+    const randomTextFont = memesFont[getRandomIntInclusive(0, 3)];
+
+    randomMeme.selectedImgId = randomImg;
+    randomMeme.lines[0].txt = randomSentence;
+    randomMeme.lines[0].size = randomTextSize;
+    randomMeme.lines[0].font = randomTextFont;
+    randomMeme.lines[0].color = getRandomColor()
+    randomMeme.lines[0].stroke = getRandomColor()
+
+
+    if (numOfSentences === 1) {
+        gMeme.lines.push({
+            txt: '',
+            size: 30,
+            font: 'Impact',
+            color: 'white',
+            stroke: 'black',
+            pos: { x: 10, y: 280 },
+            isDrag: false
+        });
+
+        randomMeme.selectedImgId = randomImg;
+        randomMeme.lines[1].txt = randomSentence;
+        randomMeme.lines[1].size = randomTextSize;
+        randomMeme.lines[1].font = randomTextFont;
+        randomMeme.lines[1].color = getRandomColor()
+        randomMeme.lines[1].stroke = getRandomColor()
+
+    }
+
+    renderMeme()
+}
 
 /////////////////
 // Drag & Drop //
@@ -193,8 +252,8 @@ function isTxtClicked(clickedPos) {
     const { pos } = currLine;
     const { txt } = currLine;
     const txtWidth = gCtx.measureText(txt).width;
-    const halftxtWidth = txtWidth/2
-    const distance = Math.sqrt(((pos.x+halftxtWidth) - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2);
+    const halftxtWidth = txtWidth / 2;
+    const distance = Math.sqrt(((pos.x + halftxtWidth) - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2);
     return distance <= currLine.size;
 }
 
