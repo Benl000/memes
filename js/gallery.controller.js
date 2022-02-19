@@ -15,6 +15,15 @@ function onImgSelect(imgId) {
   setImg(imgId);
 }
 
+function renderSavedMemesGallery(){
+  renderSavedMemes()
+  const savedMemes = getSavedMemes()
+  var strHTML = savedMemes.map((savedMeme) => {
+    return `<img src="${savedMeme}">`;
+  }).join('');
+  var elMemeGallery = document.querySelector('.savedMemes-gallery');
+  elMemeGallery.innerHTML = strHTML;
+}
 
 
 

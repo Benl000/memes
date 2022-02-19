@@ -27,6 +27,7 @@
 
 .editor-panel-control section input {
     padding: 0;
+    margin-top: 7px;
     width: 50px;
     height: 50px;
     border: none;
@@ -42,33 +43,33 @@
     border-width: 10px 10px 10px 0;
 }
 
-.btn0 {
+.text-input-btn {
     grid-column: 1/5;
 }
 
-.btn1 {
+.new-line-btn {
     grid-column: 2;
     grid-row: 2;
 }
 
-.btn2 {
+.switch-lines-btn {
     grid-column: 3;
     grid-row: 2;
 }
 
-.btn3 {
+.delete-line-btn {
     grid-column: 4;
     grid-row: 2;
 }
 
-.btn4 {
+.save-meme {
     grid-column: 2;
-    grid-row: 3;
+    grid-row: 5;
 }
 
-.btn5 {
+.download-meme {
     grid-column: 3;
-    grid-row: 3;
+    grid-row: 5;
 }
 
 .btn6 {
@@ -76,33 +77,33 @@
     grid-row: 3;
 }
 
-.btn-container7 {
-    grid-column: 2;
-    grid-row: 4;
+.fill-color-text-btn {
+    grid-column: 1;
+    grid-row: 3;
 }
 
-.btn-container8 {
+.stroke-color-text-btn {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.increase-text-size-btn {
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.decrease-text-size-btn {
     grid-column: 3;
     grid-row: 4;
 }
 
-.btn9 {
+.font-text-btn {
     grid-column: 4;
-    grid-row: 4;
+    grid-row: 3;
 }
 
-.btn10 {
+.share-Fb-Btn{
     grid-column: 4;
-    grid-row: 5;
-}
-
-.btn12 {
-    grid-column: 1;
-    grid-row: 4;
-}
-
-.shareFbBtn{
-    grid-column: 1;
     grid-row: 5;
 }
 
