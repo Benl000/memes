@@ -30,10 +30,15 @@ function drawImg(imgId) {
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height);
         currMeme.lines.forEach((line) => {
-            drawText(line.pos.x, line.pos.y, line);
+            drawText(line);
         });
     };
-    img.src = `${getImgForDisplay(imgId).url}`;
+
+    if (currMeme.selectedImgSrc === 'imgGallery') {
+        img.src = `${getImgForDisplay(imgId).url}`;
+    }else if (currMeme.selectedImgSrc === 'imgUrl'){
+        img.src = `${getImgForDisplay(imgId)}`;
+    }
 }
 
 function doUploadImg(imgDataUrl, onSuccess) {
@@ -132,7 +137,7 @@ function onRandomMeme() {
         'JS what is this?',
         'Write hello world , add to cv 7 years experienced',
     ];
-    const memesFont = ['Impact','Serif','Comic Sans MS','Sans-serif']
+    const memesFont = ['Impact', 'Serif', 'Comic Sans MS', 'Sans-serif'];
 
     const allImgs = getImgs();
     const randomImg = getRandomIntInclusive(0, allImgs.length - 1);
@@ -145,8 +150,10 @@ function onRandomMeme() {
     randomMeme.lines[0].txt = randomSentence;
     randomMeme.lines[0].size = randomTextSize;
     randomMeme.lines[0].font = randomTextFont;
-    randomMeme.lines[0].color = getRandomColor()
-    randomMeme.lines[0].stroke = getRandomColor()
+    randomMeme.lines[0].color = getRandomColor();
+    randomMeme.lines[0].stroke = getRandomColor();
+
+    // if (randomMeme.lines[0].txt.width>gCanvas.width) randomMeme.lines[0].size = 10
 
 
     if (numOfSentences === 1) {
@@ -164,12 +171,12 @@ function onRandomMeme() {
         randomMeme.lines[1].txt = randomSentence;
         randomMeme.lines[1].size = randomTextSize;
         randomMeme.lines[1].font = randomTextFont;
-        randomMeme.lines[1].color = getRandomColor()
-        randomMeme.lines[1].stroke = getRandomColor()
+        randomMeme.lines[1].color = getRandomColor();
+        randomMeme.lines[1].stroke = getRandomColor();
 
     }
 
-    renderMeme()
+    renderMeme();
 }
 
 /////////////////

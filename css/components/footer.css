@@ -1,16 +1,28 @@
 .footer-cotant{
     background-color: var(--clr3);
+    border-top: 15px ridge var(--clr3);
 }
 
 .about-me-img{
-    width: 40vw;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
+    border: solid 5px var(--clr2);
 }
 
 .about-me{
-    width: 80%;
+    padding: 20px 0;
     margin: auto;
     text-align: start;
+}
+
+.about-me-info{
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.about-me-info p{
+    max-width: 500px;
 }
 
 .about-me>*{
@@ -24,4 +36,26 @@
 .footer-sub{
     background-color: var(--clr1);
     height: 20px;
+}
+ 
+.footer-sub .logo{
+    margin: auto;
+    padding-top: 20px;
+}
+
+
+
+@media (max-width:600px) {
+
+    .about-me{
+        flex-direction: column;
+    }
+
+    .about-me-img{
+        margin: auto;
+    }
+
+    .about-me-info>*{
+        text-align: center;
+    }
 }

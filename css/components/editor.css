@@ -12,12 +12,25 @@
 }
 
 .editor-panel-control button, .editor-panel-control input {
+    border-radius: 5px;
     padding: 0;
+    background-color: var(--clr2);
+}
+
+.editor-panel-control button img{
+    padding: 10px;
+}
+
+.editor-panel-control input{
+    padding: 10px;
 }
 
 .canvas-container {
     border: 10px ridge var(--clr3);
-    border-width: 10px 0 10px 10px
+    border-width: 10px 0 10px 10px;
+    background-color: var(--clr4);
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 #my-canvas {
@@ -35,6 +48,9 @@
 
 .editor-grid-container {
     display: grid;
+    background-color: var(--clr4);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
     grid-template-columns: 50px 50px 50px 50px;
     grid-template-rows: 50px 50px 50px 50px 50px;
     gap: 10px;
@@ -120,10 +136,14 @@
         margin: auto;
         padding: 10px 45px;
         border-width: 0 10px 10px 10px;
+        border-top-right-radius:  0;
+        border-bottom-left-radius:  10px;
     }
 
     .canvas-container {
         margin: auto;
+        border-top-right-radius:  10px;
+        border-bottom-left-radius:  0;
         border-width: 10px 10px 0 10px
     }
 }
