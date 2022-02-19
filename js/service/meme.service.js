@@ -100,6 +100,10 @@ function getMeme() {
     return gMeme;
 }
 
+function getImgs() {
+    return gImgs;
+}
+
 function getImgForDisplay(imgId) {
     return gImgs.find(img => imgId === img.id);
 }
