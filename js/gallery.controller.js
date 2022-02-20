@@ -1,6 +1,10 @@
 'use strict';
 
 
+//////////////////////
+// Render Galleries //
+//////////////////////
+
 
 function renderGallery() {
   const imgs =getImgs()
@@ -12,19 +16,25 @@ function renderGallery() {
   elGallery.innerHTML = strHTML;
 }
 
-function onImgSelect(imgId, src) {
-  setImg(imgId,src);
-}
-
 function renderSavedMemesGallery() {
   renderSavedMemes();
   const savedMemes = getSavedMemes();
   var strHTML = savedMemes.map((savedMeme,idx) => {
-    return `<img src="${savedMeme}" onclick="onImgSelect(${idx},'imgUrl')" alt="saved-meme">`;
+    return `<img src="${savedMeme.url}" onclick="onImgSelect(${idx},'imgUrl')" alt="saved-meme">`;
   }).join('');
   var elMemeGallery = document.querySelector('.savedMemes-gallery');
   elMemeGallery.innerHTML = strHTML;
 }
+
+function onImgSelect(memeIdx, src) {
+  setImg(memeIdx,src);
+}
+
+
+//////////////////////////
+// Toggle Saved Gallery //
+//////////////////////////
+
 
 function onToggleSavedMemes(){
   var savedMemesGallery = document.querySelector('.savedMemes-gallery');

@@ -1,6 +1,10 @@
 'use strict';
 
-var gIdx = 1;
+
+//////////
+// Vars //
+//////////
+
 
 var gImgs = [{
     id: 1,
@@ -80,6 +84,7 @@ var gMeme = {
     selectedImgSrc: 'imgGallery',
     selectedImgId: 2,
     selectedLineIdx: 0,
+    url: '',
     lines: [{
         txt: '',
         size: 30,
@@ -114,13 +119,14 @@ function getImgForDisplay(imgId) {
     }
 }
 
-function setImg(imgId, src) {
-    gMeme.selectedImgId = imgId;
-    gMeme.selectedImgSrc = src;
-    if (src === 'imgUrl') {
-        gMeme.lines[0].txt = '';
-        gMeme.lines.splice(1, gMeme.lines.length);
-        gMeme.selectedLineIdx = 0;
+function setImg(memeIdx, src) {
+    if (src === 'imgGallery') {
+        gMeme.selectedImgId = memeIdx;
+        gMeme.selectedImgSrc = src;
+        gMeme.url = '';
+    } else if (src === 'imgUrl') {
+        const saveArrMemes = getSavedMemes();
+        gMeme = saveArrMemes[memeIdx];
         document.getElementById("text-input").value = gMeme.lines[gMeme.selectedLineIdx].txt;
     }
     renderMeme();
@@ -164,12 +170,12 @@ function setLine() {
     gMeme.selectedLineIdx = (gMeme.selectedLineIdx <= (gMeme.lines.length - 2)) ? ++gMeme.selectedLineIdx : 0;
 }
 
-function changeColorFillTxt(color) {
-    gMeme.lines[gMeme.selectedLineIdx].color = color;
-}
-
-function changeColorStroke(color) {
-    gMeme.lines[gMeme.selectedLineIdx].stroke = color;
+function changeColor(color, fill) {
+    if (fill === 'color') {
+        gMeme.lines[gMeme.selectedLineIdx].color = color;
+    } else if (fill === 'stroke') {
+        gMeme.lines[gMeme.selectedLineIdx].stroke = color;
+    }
 }
 
 function changeTxtFont() {
@@ -245,8 +251,13 @@ function _saveMemeToStorage() {
 }
 
 function saveMeme() {
-    const savedMeme = gCanvas.toDataURL();
-    gSavedMemes.unshift(savedMeme);
+    if (!gMeme.url) {
+        gMeme.url = gCanvas.toDataURL();
+        var newSavedMeme = gMeme;
+        gSavedMemes.unshift(newSavedMeme);
+    } else {
+        gMeme.url = gCanvas.toDataURL();
+    }
     _saveMemeToStorage();
 }
 

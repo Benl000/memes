@@ -9,103 +9,153 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body onload="onInit()">
+<body>
+
+    <!-- ---------------Header---------------- -->
+
     <header id="main-header" class="main-header main-layout flex space-between align-center">
-        <img src="./img/LOGO.png" class="logo" alt="logo">
+        <img src="./img/logo.png" class="logo" alt="logo">
     </header>
+
+    <!-- ---------------Editor---------------- -->
+
     <main class="main-editor flex">
+
         <div class="canvas-container">
             <canvas id="my-canvas" width="300" height="300"></canvas>
         </div>
+
         <div class="editor-panel-control editor-grid-container">
+
             <input class="text-input-btn" id="text-input" type="text" placeholder="type a new line here"
                 onkeyup="setLineTxt(this)">
+
             <button class="new-line-btn">
                 <img src="./img/icons/add.png" onclick="onSetNewLine()" alt="new-line-button">
             </button>
+
             <button class="switch-lines-btn">
                 <img src="./img/icons/up-and-down.png" onclick="onSwitchLine()" alt="switch-lines-button">
             </button>
+
             <button class="delete-line-btn">
                 <img src="./img/icons/trash.png" onclick="onSetDeleteLine()" alt="delete-line-button">
             </button>
+
             <button class="fill-color-text-btn-bg"></button>
+
             <section class="fill-color-text-btn">
                 <img src="./img/icons/textfill.png" alt="fill-color-text-button">
-                <input type="color" onchange="onChangeColorFill(this.value)" placeholder="">
+                <input type="color" onchange="onChangeColor(this.value,'color')" placeholder="">
             </section>
+
             <button class="stroke-color-text-btn-bg"></button>
+
             <section class="stroke-color-text-btn">
                 <img class="stroke-color-text-btn" src="./img/icons/textstroke.png" alt="stroke-color-text-button">
-                <input class="stroke-color-text-btn" type="color" onchange="onChangeColorStroke(this.value)">
+                <input class="stroke-color-text-btn" type="color" onchange="onChangeColor(this.value,'stroke')">
             </section>
+
             <button class="text-size-btns"></button>
+
             <button class="increase-text-size-btn">
                 <img src="./img/icons/increasefont-icon.png" onclick="onChangeTxtSize('increase')"
                     alt="increase-text-size-button">
             </button>
+
             <button class="decrease-text-size-btn">
                 <img src="./img/icons/decreasefont-icon.png" onclick="onChangeTxtSize('decrease')"
                     alt="decrease-text-size-button">
             </button>
+
             <button class="font-text-btn">
                 <img src="./img/icons/font.png" onclick="onChangeTxtFont()" alt="font-text-button">
             </button>
+
             <button class="saved-memes-btn">
                 <img src="./img/icons/saved-memes.png" onclick="onToggleSavedMemes()" alt="saved-memes-button">
             </button>
+
             <button class="save-meme">
                 <img src="./img/icons/save.png" onclick="onSaveMeme()" alt="save-meme-button">
             </button>
+
             <button class="download-meme">
                 <a href="#" class="btn download" onclick="onMemeDownload(this)" download="meme.jpg"><img
                         src="./img/icons/download.png" alt="download-meme-button"></a>
             </button>
+
             <button class="share-Fb-Btn" onclick="onShareMeme()">
                 <img src="./img/icons/fbl.png" alt="share-Fb-Button">
             </button>
+
             <button class="flexible-Btn" onclick="onRandomMeme()">
                 <img src="./img/icons/flexible.png" alt="flexible-Button">
             </button>
+
         </div>
+
     </main>
-    <main class="savedMemes-gallery grid-container"></main>
-    <main class="main-gallery grid-container"></main>
+
+    <!-- --------------Galleries-------------- -->
+
+    <main class="savedMemes-gallery grid-container" style="display: none;">
+    </main>
+
+    <main class="main-gallery grid-container">
+    </main>
+
+    <!-- ---------------Footer---------------- -->
+
     <footer class="main-footer">
+
         <div class="footer-cotant flex">
             <div class="about-me flex">
-                <img class="about-me-img" src="/img/me2.jpg" alt="me">
+
+                <img class="about-me-img" src="/img/me.jpg" alt="me">
+
                 <div class="about-me-info flex">
+
                     <h4>Ben Lutenberg</h4>
+
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto minima fugiat eveniet. Dolorem
                         quasi consequuntur aspernatur eum corporis harum voluptate saepe nisi iste eius. Veritatis,
                         neque ratione! Itaque, veritatis amet?</p>
                     <div class="linkes">
+
                         <a href="https://www.linkedin.com/" target="_blank">
                             <img class="smi" src="./img/icons/lil.png" alt="lil">
                         </a>
+
                         <a href="https://www.facebook.com/" target="_blank">
                             <img class="smi" src="./img/icons/fbl.png" alt="fbl">
                         </a>
+
                         <a href="https://github.com/" target="_blank">
                             <img class="smi" src="./img/icons/github-logo.png" alt="ghl">
                         </a>
+
                     </div>
                 </div>
-
             </div>
         </div>
+
         <div class="footer-sub">
-            <img src="./img/LOGO.png" class="logo" alt="logo">
+            <img src="./img/logo.png" class="logo" alt="logo">
             <div>© coffeerights</div>
         </div>
+
     </footer>
+
+    <!-- ---------------Scripts--------------- -->
+
     <script src="./js/service/util.service.js"></script>
     <script src="./js/service/storage.service.js"></script>
     <script src="./js/service/meme.service.js"></script>
     <script src="./js/service/gallery.service.js"></script>
     <script src="./js/gallery.controller.js"></script>
     <script src="./js/meme.controller.js"></script>
+
 </body>
 
 </html>

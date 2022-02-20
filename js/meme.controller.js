@@ -1,23 +1,32 @@
 'use strict';
 
-var gCanvas;
-var gCtx;
+
+//////////
+// Vars //
+//////////
+
+
+var gCanvas = document.getElementById('my-canvas');
+var gCtx = gCanvas.getContext('2d');
 var gStartPos;
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
 
 
-function onInit() {
-    renderGallery();
-    renderSavedMemesGallery();
-    gCanvas = document.getElementById('my-canvas');
-    gCtx = gCanvas.getContext('2d');
-    addListeners();
-    renderMeme();
-}
+/////////////
+// On Init //
+/////////////
+
+
+renderGallery();
+renderSavedMemesGallery();
+addListeners();
+renderMeme();
+
 
 ////////////
 // Canvas //
 ////////////
+
 
 function renderMeme() {
     const meme = getMeme();
@@ -36,7 +45,7 @@ function drawImg(imgId) {
 
     if (currMeme.selectedImgSrc === 'imgGallery') {
         img.src = `${getImgForDisplay(imgId).url}`;
-    }else if (currMeme.selectedImgSrc === 'imgUrl'){
+    } else if (currMeme.selectedImgSrc === 'imgUrl') {
         img.src = `${getImgForDisplay(imgId)}`;
     }
 }
@@ -70,13 +79,8 @@ function onChangeTxtSize(txtChange) {
     setFontSize(txtChange);
 }
 
-function onChangeColorFill(fillColor) {
-    changeColorFillTxt(fillColor);
-    renderMeme();
-}
-
-function onChangeColorStroke(strokeColor) {
-    changeColorStroke(strokeColor);
+function onChangeColor(strokeColor,filler) {
+    changeColor(strokeColor,filler);
     renderMeme();
 }
 
@@ -179,10 +183,10 @@ function onRandomMeme() {
     renderMeme();
 }
 
+
 /////////////////
 // Drag & Drop //
 /////////////////
-
 
 
 function addListeners() {
@@ -194,6 +198,8 @@ function addMouseListeners() {
     gCanvas.addEventListener('mousemove', onMove);
     gCanvas.addEventListener('mousedown', onDown);
     gCanvas.addEventListener('mouseup', onUp);
+    gCanvas.addEventListener('mouseleave', onLeave);
+    gCanvas.addEventListener('mouseover', onOver);
 }
 
 function addTouchListeners() {
@@ -204,27 +210,44 @@ function addTouchListeners() {
 
 function onDown(ev) {
     const pos = getEvPos(ev);
-    if (!isTxtClicked(pos)) return;
-    setTxtDrag(true);
-    gStartPos = pos;
-    document.body.style.cursor = 'grabbing';
+    const meme = getMeme();
+    const lines = meme.lines;
+    lines.forEach(line => {
+        if (!isTxtClicked(ev, line)) return;
+        document.body.style.cursor = 'grabbing';
+        line.isDrag = true;
+        gStartPos = pos;
+    });
 }
 
 function onMove(ev) {
-    document.body.style.cursor = 'grab';
-    const currLine = getCurrLine();
-    if (currLine.isDrag) {
-        const pos = getEvPos(ev);
-        const dx = pos.x - gStartPos.x;
-        const dy = pos.y - gStartPos.y;
-        moveTxt(dx, dy);
-        gStartPos = pos;
-        renderMeme();
-    }
+    const meme = getMeme();
+    const lines = meme.lines;
+    lines.forEach(line => {
+        if (line.isDrag) {
+            const pos = getEvPos(ev);
+            const dx = pos.x - gStartPos.x;
+            const dy = pos.y - gStartPos.y;
+            moveTxt(dx, dy, line);
+            gStartPos = pos;
+            renderMeme();
+        }
+    });
 }
 
 function onUp() {
-    setTxtDrag(false);
+    document.body.style.cursor = 'grab';
+    const meme = getMeme();
+    const lines = meme.lines;
+    lines.forEach(line => { line.isDrag = false; });
+}
+
+function onOver() {
+    document.body.style.cursor = 'grab';
+}
+
+function onLeave() {
+    document.body.style.cursor = 'default';
 }
 
 function getEvPos(ev) {
@@ -243,28 +266,14 @@ function getEvPos(ev) {
     return pos;
 }
 
-function moveTxt(dx, dy) {
-    const currLine = getCurrLine();
-    currLine.pos.x += dx;
-    currLine.pos.y += dy;
+function moveTxt(dx, dy, line) {
+    line.pos.x += dx;
+    line.pos.y += dy;
 }
 
-function setTxtDrag(isDrag) {
-    const currLine = getCurrLine();
-    currLine.isDrag = isDrag;
-}
-
-function isTxtClicked(clickedPos) {
-    const currLine = getCurrLine();
-    const { pos } = currLine;
-    const { txt } = currLine;
-    const txtWidth = gCtx.measureText(txt).width;
-    const halftxtWidth = txtWidth / 2;
-    const distance = Math.sqrt(((pos.x + halftxtWidth) - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2);
-    return distance <= currLine.size;
-}
-
-function renderCurrLine() {
-    const currLine = getCurrLine();
-    drawText(currLine.pos.x, currLine.pos.y, currLine.txt);
+function isTxtClicked(ev, line) {
+    return (ev.offsetX >= line.pos.x &&
+        ev.offsetX <= (line.pos.x + gCtx.measureText(line.txt).width)
+        && ev.offsetY >= line.pos.y - line.size
+        && ev.offsetY <= line.pos.y);
 }
