@@ -1,14 +1,10 @@
-/* .editor-panel-control button img {
-    width: 20px;
-    height: 20px;
-
-} */
-
 
 .main-editor {
     padding: 10px;
     justify-content: center;
     background-color: var(--clr2);
+    border: 15px ridge var(--clr5);
+    border-width: 15px 0;
 }
 
 .editor-panel-control button, .editor-panel-control input {
@@ -17,7 +13,11 @@
     background-color: var(--clr2);
 }
 
-.editor-panel-control button img{
+.editor-panel-control button,.editor-panel-control section input {
+    cursor: pointer;
+}
+
+.editor-panel-control button:not(.saved-memes-btn) img{
     padding: 10px;
 }
 
@@ -40,9 +40,10 @@
 
 .editor-panel-control section input {
     padding: 0;
-    margin-top: 7px;
-    width: 50px;
-    height: 50px;
+    margin-top: 6px;
+    margin-left: 3px;
+    width: 45px;
+    height: 48px;
     border: none;
 }
 
@@ -88,19 +89,35 @@
     grid-row: 5;
 }
 
-.btn6 {
-    grid-column: 4;
-    grid-row: 3;
-}
-
 .fill-color-text-btn {
     grid-column: 1;
     grid-row: 3;
+    cursor: default;
 }
 
 .stroke-color-text-btn {
     grid-column: 2;
     grid-row: 3;
+    cursor: default;
+}
+
+.stroke-color-text-btn-bg{
+    grid-column: 2;
+    grid-row: 3/span 2;
+    cursor: default;
+}
+
+.fill-color-text-btn-bg{
+    grid-column: 1;
+    grid-row: 3/span 2;
+    cursor: default;
+}
+
+.text-size-btns{
+    grid-column: 3;
+    grid-row: 3/span 2;
+    width: 90%;
+    margin:  0 auto ;
 }
 
 .increase-text-size-btn {
@@ -123,6 +140,17 @@
     grid-row: 5;
 }
 
+.saved-memes-btn{
+    grid-column: 1;
+    grid-row: 5;
+}
+
+.saved-memes-btn img{
+    padding: 0;
+    width: 43px;
+    height: 43px;
+    margin-left: -2px;
+}
 /* mq */
 
 

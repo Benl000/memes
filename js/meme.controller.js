@@ -211,6 +211,7 @@ function onDown(ev) {
 }
 
 function onMove(ev) {
+    document.body.style.cursor = 'grab';
     const currLine = getCurrLine();
     if (currLine.isDrag) {
         const pos = getEvPos(ev);
@@ -224,7 +225,6 @@ function onMove(ev) {
 
 function onUp() {
     setTxtDrag(false);
-    document.body.style.cursor = 'grab';
 }
 
 function getEvPos(ev) {

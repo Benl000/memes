@@ -2,12 +2,10 @@
 /* setup */
 
 @import './setup/vars.css';
-@import './setup/typography.css';
 
 /* base */
 
 @import './basic/base.css';
-@import './basic/layout.css';
 @import './basic/helpers.css';
 
 /* components */
@@ -16,7 +14,3 @@
 @import './components/footer.css';
 @import './components/gallery-grid.css';
 @import './components/editor.css';
-
-/* mq */
-
-@import './basic/mq.css';

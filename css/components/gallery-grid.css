@@ -9,3 +9,7 @@
 .grid-container img{
     cursor: pointer;
 }
+
+.savedMemes-gallery{
+    border-bottom: 15px ridge var(--clr5);
+}

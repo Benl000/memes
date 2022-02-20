@@ -12,16 +12,7 @@
 <body onload="onInit()">
     <header id="main-header" class="main-header main-layout flex space-between align-center">
         <img src="./img/LOGO.png" class="logo" alt="logo">
-        <!-- <nav class="main-nav flex">
-            <div class="gallery">gallery</div>
-            <div class="memes">memes</div>
-            <div class="about">about</div>
-        </nav> -->
     </header>
-    <!-- <section class="search-bar flex space-between">
-        <input type="text">
-        <div class="common-words">funny comics dogs drinks</div>
-    </section> -->
     <main class="main-editor flex">
         <div class="canvas-container">
             <canvas id="my-canvas" width="300" height="300"></canvas>
@@ -38,22 +29,30 @@
             <button class="delete-line-btn">
                 <img src="./img/icons/trash.png" onclick="onSetDeleteLine()" alt="delete-line-button">
             </button>
+            <button class="fill-color-text-btn-bg"></button>
             <section class="fill-color-text-btn">
                 <img src="./img/icons/textfill.png" alt="fill-color-text-button">
                 <input type="color" onchange="onChangeColorFill(this.value)" placeholder="">
             </section>
+            <button class="stroke-color-text-btn-bg"></button>
             <section class="stroke-color-text-btn">
-                <img src="./img/icons/textstroke.png" alt="stroke-color-text-button">
-                <input type="color" onchange="onChangeColorStroke(this.value)">
+                <img class="stroke-color-text-btn" src="./img/icons/textstroke.png" alt="stroke-color-text-button">
+                <input class="stroke-color-text-btn" type="color" onchange="onChangeColorStroke(this.value)">
             </section>
+            <button class="text-size-btns"></button>
             <button class="increase-text-size-btn">
-                <img src="./img/icons/increasefont-icon.png" onclick="onChangeTxtSize('increase')" alt="increase-text-size-button">
+                <img src="./img/icons/increasefont-icon.png" onclick="onChangeTxtSize('increase')"
+                    alt="increase-text-size-button">
             </button>
             <button class="decrease-text-size-btn">
-                <img src="./img/icons/decreasefont-icon.png" onclick="onChangeTxtSize('decrease')" alt="decrease-text-size-button">
+                <img src="./img/icons/decreasefont-icon.png" onclick="onChangeTxtSize('decrease')"
+                    alt="decrease-text-size-button">
             </button>
             <button class="font-text-btn">
                 <img src="./img/icons/font.png" onclick="onChangeTxtFont()" alt="font-text-button">
+            </button>
+            <button class="saved-memes-btn">
+                <img src="./img/icons/saved-memes.png" onclick="onToggleSavedMemes()" alt="saved-memes-button">
             </button>
             <button class="save-meme">
                 <img src="./img/icons/save.png" onclick="onSaveMeme()" alt="save-meme-button">
@@ -78,9 +77,22 @@
                 <img class="about-me-img" src="/img/me2.jpg" alt="me">
                 <div class="about-me-info flex">
                     <h4>Ben Lutenberg</h4>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto minima fugiat eveniet. Dolorem quasi consequuntur aspernatur eum corporis harum voluptate saepe nisi iste eius. Veritatis, neque ratione! Itaque, veritatis amet?</p>
-                    <div class="social">facebook</div>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto minima fugiat eveniet. Dolorem
+                        quasi consequuntur aspernatur eum corporis harum voluptate saepe nisi iste eius. Veritatis,
+                        neque ratione! Itaque, veritatis amet?</p>
+                    <div class="linkes">
+                        <a href="https://www.linkedin.com/" target="_blank">
+                            <img class="smi" src="./img/icons/lil.png" alt="lil">
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank">
+                            <img class="smi" src="./img/icons/fbl.png" alt="fbl">
+                        </a>
+                        <a href="https://github.com/" target="_blank">
+                            <img class="smi" src="./img/icons/github-logo.png" alt="ghl">
+                        </a>
+                    </div>
                 </div>
+
             </div>
         </div>
         <div class="footer-sub">

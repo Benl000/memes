@@ -25,3 +25,12 @@ function renderSavedMemesGallery() {
   var elMemeGallery = document.querySelector('.savedMemes-gallery');
   elMemeGallery.innerHTML = strHTML;
 }
+
+function onToggleSavedMemes(){
+  var savedMemesGallery = document.querySelector('.savedMemes-gallery');
+  if (savedMemesGallery.style.display === "none") {
+    savedMemesGallery.style.display = "grid";
+  } else {
+    savedMemesGallery.style.display = "none";
+  }
+}
