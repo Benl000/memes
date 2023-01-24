@@ -46,14 +46,16 @@
 
             <section class="fill-color-text-btn">
                 <img src="./img/icons/textfill.png" alt="fill-color-text-button">
-                <input type="color" onchange="onChangeColor(this.value,'color')" placeholder="">
+                <input type="color" colorpick-eyedropper-active="false" onchange="onChangeColor(this.value,'color')"
+                    placeholder="">
             </section>
 
             <button class="stroke-color-text-btn-bg"></button>
 
             <section class="stroke-color-text-btn">
                 <img class="stroke-color-text-btn" src="./img/icons/textstroke.png" alt="stroke-color-text-button">
-                <input class="stroke-color-text-btn" type="color" onchange="onChangeColor(this.value,'stroke')">
+                <input class="stroke-color-text-btn" colorpick-eyedropper-active="false" type="color"
+                    onchange="onChangeColor(this.value,'stroke')">
             </section>
 
             <button class="text-size-btns"></button>
@@ -112,26 +114,31 @@
         <div class="footer-cotant flex">
             <div class="about-me flex">
 
-                <img class="about-me-img" src="/img/me.jpg" alt="me">
+                <img class="about-me-img" src="./img/me.jpg" alt="me">
 
                 <div class="about-me-info flex">
 
                     <h4>Ben Lutenberg</h4>
 
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto minima fugiat eveniet. Dolorem
-                        quasi consequuntur aspernatur eum corporis harum voluptate saepe nisi iste eius. Veritatis,
-                        neque ratione! Itaque, veritatis amet?</p>
+                    <p>
+                        Welcome to my meme generator.
+                        A web application which allows you to create your own memes,
+                        download\save them (using LocalStorage) or share them on your Facebook profile.
+                        A front-end project developed with HTML5, CSS3, and JavaScript using MVC design pattern and
+                        Canvas.
+                        Supports tablet and mobile responsiveness.
+                    </p>
                     <div class="linkes">
 
-                        <a href="https://www.linkedin.com/" target="_blank">
+                        <a href="https://www.linkedin.com/in/ben-lutenberg/" target="_blank">
                             <img class="smi" src="./img/icons/lil.png" alt="lil">
                         </a>
 
-                        <a href="https://www.facebook.com/" target="_blank">
+                        <a href="https://www.facebook.com/ben.lutenberg" target="_blank">
                             <img class="smi" src="./img/icons/fbl.png" alt="fbl">
                         </a>
 
-                        <a href="https://github.com/" target="_blank">
+                        <a href="https://github.com/Benl000" target="_blank">
                             <img class="smi" src="./img/icons/github-logo.png" alt="ghl">
                         </a>
 
